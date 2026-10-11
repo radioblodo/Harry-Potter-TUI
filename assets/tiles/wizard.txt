@@ -1,0 +1,21 @@
+# Same format as cobblestone — an actor instead of a floor.
+# 8x16 dots → 4×4 Braille cells. Copy this for other characters.
+name wizard
+kind actor
+dots 8 16
+...##...
+..####..
+.######.
+...##...
+..#..#..
+..####..
+..#..#..
+...##...
+..####..
+.######.
+########
+.######.
+..#..#..
+..#..#..
+..#..#..
+.##..##.

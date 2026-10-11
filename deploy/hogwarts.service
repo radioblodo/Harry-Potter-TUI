@@ -1,0 +1,20 @@
+# Example systemd unit for Phase 7+.
+# sudo cp deploy/hogwarts.service /etc/systemd/system/
+# sudo systemctl enable --now hogwarts
+
+[Unit]
+Description=Hogwarts TUI game server
+After=network.target
+
+[Service]
+Type=simple
+User=play
+Group=play
+WorkingDirectory=/usr/local/share/hogwarts
+ExecStart=/usr/local/bin/hp-server
+Restart=on-failure
+MemoryMax=256M
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

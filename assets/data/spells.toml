@@ -1,0 +1,22 @@
+# Game data — not compiled. hp-session will load this later.
+
+[[spell]]
+id = "lumos"
+name = "Lumos"
+cost = 0
+range = 0
+effect = "light"
+
+[[spell]]
+id = "nox"
+name = "Nox"
+cost = 0
+range = 0
+effect = "unlight"
+
+[[spell]]
+id = "expelliarmus"
+name = "Expelliarmus"
+cost = 8
+range = 4
+effect = "disarm"

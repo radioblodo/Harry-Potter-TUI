@@ -1,0 +1,14 @@
+# Reusable floor stamp. Copy this file to make other tiles.
+# 8x8 dots → 4 columns × 2 rows of Braille.
+# '#' = stone, '.' = grout. This pattern tiles with itself.
+name cobblestone
+kind floor
+dots 8 8
+.###.##.
+#...#..#
+#...#..#
+.###.##.
+##.###.#
+.#.#...#
+.#.#...#
+##.###.#

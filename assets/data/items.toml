@@ -1,0 +1,15 @@
+[[item]]
+id = "wand"
+name = "Wand"
+slot = "hand"
+
+[[item]]
+id = "howler"
+name = "Howler"
+slot = "misc"
+
+[[item]]
+id = "chocolate_frog"
+name = "Chocolate Frog"
+slot = "consumable"
+heal = 10

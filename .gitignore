@@ -1,0 +1,15 @@
+build/
+.cache/
+compile_commands.json
+.idea/
+.vscode/
+*.o
+*.a
+*.so
+.DS_Store
+
+# Drop your own theme here; do not commit copyrighted soundtrack files.
+assets/music/*.mp3
+assets/music/*.ogg
+assets/music/*.wav
+assets/music/*.flac
