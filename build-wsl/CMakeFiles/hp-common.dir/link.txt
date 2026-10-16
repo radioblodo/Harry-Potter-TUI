@@ -1,0 +1,2 @@
+/usr/sbin/ar qc libhp-common.a "CMakeFiles/hp-common.dir/src/common/map.cpp.o" "CMakeFiles/hp-common.dir/src/common/sprite.cpp.o"
+/usr/sbin/ranlib libhp-common.a

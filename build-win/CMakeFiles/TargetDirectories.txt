@@ -1,0 +1,5 @@
+C:/Users/zilia/Harry-Potter-TUI/build-win/CMakeFiles/hp-common.dir
+C:/Users/zilia/Harry-Potter-TUI/build-win/CMakeFiles/hp-session.dir
+C:/Users/zilia/Harry-Potter-TUI/build-win/CMakeFiles/hp-server.dir
+C:/Users/zilia/Harry-Potter-TUI/build-win/CMakeFiles/ALL_BUILD.dir
+C:/Users/zilia/Harry-Potter-TUI/build-win/CMakeFiles/ZERO_CHECK.dir

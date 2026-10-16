@@ -13,7 +13,11 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-add_compile_options(-Wall -Wextra -Wpedantic)
+if(MSVC)
+  add_compile_options(/W4)
+else()
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
 option(HOGWARTS_SANITIZE "Enable ASan + UBSan (Debug-friendly)" OFF)
 if(HOGWARTS_SANITIZE)
@@ -22,6 +26,26 @@ if(HOGWARTS_SANITIZE)
 endif()
 
 set(HOGWARTS_ASSETS "${CMAKE_SOURCE_DIR}/assets")
+
+find_package(PkgConfig QUIET)
+if(PkgConfig_FOUND)
+  pkg_check_modules(NOTCURSES QUIET IMPORTED_TARGET notcurses)
+endif()
+if(NOTCURSES_FOUND)
+  set(HOGWARTS_HAS_NOTCURSES ON)
+else()
+  find_path(NOTCURSES_INCLUDE_DIR notcurses/notcurses.h)
+  find_library(NOTCURSES_LIBRARY NAMES notcurses)
+  if(NOTCURSES_INCLUDE_DIR AND NOTCURSES_LIBRARY)
+    set(HOGWARTS_HAS_NOTCURSES ON)
+  else()
+    set(HOGWARTS_HAS_NOTCURSES OFF)
+  endif()
+endif()
+if(NOT HOGWARTS_HAS_NOTCURSES)
+  set(HOGWARTS_HAS_NOTCURSES OFF)
+  message(STATUS "notcurses not found; build will use the ANSI renderer")
+endif()
 
 add_library(hp-common
   src/common/map.cpp
@@ -34,8 +58,18 @@ add_executable(hp-session
   src/session/terminal.cpp
   src/session/title_screen.cpp
   src/session/raycast.cpp
+  src/session/notcurses_scene.cpp
 )
 target_link_libraries(hp-session PRIVATE hp-common)
+if(HOGWARTS_HAS_NOTCURSES)
+  if(NOTCURSES_FOUND)
+    target_link_libraries(hp-session PRIVATE PkgConfig::NOTCURSES)
+  else()
+    target_include_directories(hp-session PRIVATE "${NOTCURSES_INCLUDE_DIR}")
+    target_link_libraries(hp-session PRIVATE "${NOTCURSES_LIBRARY}")
+  endif()
+  target_compile_definitions(hp-session PRIVATE HOGWARTS_HAS_NOTCURSES=1)
+endif()
 target_compile_definitions(hp-session PRIVATE
   HOGWARTS_ASSETS="${HOGWARTS_ASSETS}"
 )

@@ -18,7 +18,8 @@ bool Map::in_bounds(int x, int y) const {
 }
 
 bool Map::blocked(int x, int y) const {
-  return at(x, y) == '#';
+  const char tile = at(x, y);
+  return tile == '#' || tile == ' ';
 }
 
 std::optional<Vec2i> Map::find(char needle) const {

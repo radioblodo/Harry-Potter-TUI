@@ -1,0 +1,5 @@
+/mnt/c/Users/zilia/Harry-Potter-TUI/build-wsl/CMakeFiles/hp-common.dir
+/mnt/c/Users/zilia/Harry-Potter-TUI/build-wsl/CMakeFiles/hp-session.dir
+/mnt/c/Users/zilia/Harry-Potter-TUI/build-wsl/CMakeFiles/hp-server.dir
+/mnt/c/Users/zilia/Harry-Potter-TUI/build-wsl/CMakeFiles/edit_cache.dir
+/mnt/c/Users/zilia/Harry-Potter-TUI/build-wsl/CMakeFiles/rebuild_cache.dir

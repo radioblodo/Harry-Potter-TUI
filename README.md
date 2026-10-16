@@ -47,6 +47,7 @@ sudo pacman -S cmake
 ```
 assets/maps/     floor plans (walls, doors) — not pictures
 assets/tiles/    reusable stamps: cobblestone, wizard, your own
+assets/graphics/ bitmap art for the optional notcurses renderer
 assets/ui/       title screen art
 assets/data/     spells and items (loaded later)
 assets/music/    drop theme.mp3 here (gitignored)
@@ -65,3 +66,19 @@ See `assets/tiles/README.md`.
 - **Now:** title screen, then a first-person cellar (`wasd` / arrows, `q` to quit).
 - **Edit the scene:** `assets/maps/cellar.txt` (`#` wall, `.` floor, `D` door, `@` spawn).
 - **Phase 7:** `ssh play@host` → same TUI, no client install.
+
+## Optional real graphics
+
+The game includes an optional notcurses image scene. Install notcurses and its
+development headers before configuring CMake; CMake will detect it
+automatically. Put bitmap art in `assets/graphics/` as described in
+[`assets/graphics/README.md`](assets/graphics/README.md), then run:
+
+```bash
+HOGWARTS_NOTCURSES=1 ./build/hp-session
+```
+
+`title.png` is shown full-screen, with `sky.png` as a fallback. The renderer
+uses the terminal's best available image protocol and degrades to Unicode
+blitters when pixel graphics are unavailable. Without notcurses, the existing
+ANSI renderer remains the default.

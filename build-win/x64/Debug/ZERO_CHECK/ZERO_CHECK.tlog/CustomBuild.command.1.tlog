@@ -1,0 +1,10 @@
+^C:\USERS\ZILIA\HARRY-POTTER-TUI\BUILD-WIN\CMAKEFILES\1AA3F099E4349B9CA63814887164B6D8\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/zilia/Harry-Potter-TUI -BC:/Users/zilia/Harry-Potter-TUI/build-win --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/zilia/Harry-Potter-TUI/build-win/hogwarts.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

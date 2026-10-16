@@ -1,0 +1,1 @@
+/usr/sbin/c++ -g -Wl,--dependency-file=CMakeFiles/hp-server.dir/link.d "CMakeFiles/hp-server.dir/src/server/main.cpp.o" -o hp-server  libhp-common.a
